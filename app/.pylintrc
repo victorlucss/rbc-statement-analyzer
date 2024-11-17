@@ -1,0 +1,102 @@
+[MASTER]
+# A comma-separated list of package or module names from where C extensions may
+# be loaded.
+extension-pkg-whitelist=
+
+# Add files or directories to the blacklist. They should be base names, not
+# paths.
+ignore=CVS
+
+# Add files or directories matching the regex patterns to the blacklist. The
+# regex matches against base names, not paths.
+ignore-patterns=
+
+# List of plugins (as comma separated values of python modules names) to load,
+# usually to register additional checkers.
+load-plugins=
+
+[MESSAGES CONTROL]
+# Enable the message, report, category or checker with the given id(s). You can
+# either give multiple identifiers separated by comma (,) or put this option
+# multiple time.
+enable=
+
+# Disable the message, report, category or checker with the given id(s). You can
+# either give multiple identifiers separated by comma (,) or put this option
+# multiple time (only if you have a very old version of pylint). You can also
+# use "--disable=all" to disable everything first and then reenable specific
+# checks.
+disable=
+    C0114,  # missing-module-docstring
+    C0115,  # missing-class-docstring
+    C0116,  # missing-function-docstring
+    R0903,  # too-few-public-methods
+    R0801,  # duplicate-code
+    broad-exception-caught,
+
+[REPORTS]
+# Set the output format. Available formats are text, parseable, colorized, json,
+# json-with-metadata, json-line, md, html, and pylint-github.
+output-format=text
+
+# Tells whether to display a full report or only the messages
+reports=no
+
+[REFACTORING]
+# Maximum number of nested blocks for function / method body
+max-nested-blocks=5
+
+[DESIGN]
+# Maximum number of arguments for function / method
+max-args=5
+
+# Maximum number of attributes for a class (see R0902).
+max-attributes=10
+
+# Maximum number of boolean expressions in an if statement
+max-bool-expr=5
+
+[FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=160
+
+# Regexp for a line that is allowed to be longer than the limit.
+ignore-long-lines=^\s*(# )?<?https?://\S+>?$
+
+# Number of spaces of indent required inside a hanging or continued line.
+indent-after-paren=4
+
+# Expected format of line ending, e.g. empty (any line ending), LF or CRLF.
+expected-line-ending-format=
+
+# String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1
+# tab).
+indent-string='    '
+
+[BASIC]
+# Variable names that should be allowed as globals
+good-names=i,j,k,ex,Run,_,id,foo,bar,baz,toto,tutu,tata
+
+# List of builtins function names that should not be used, separated by a comma
+bad-names=foo,bar,baz,toto,tutu,tata
+
+[SIMILARITIES]
+# Minimum lines number of a similarity.
+min-similarity-lines=4
+
+[TYPECHECK]
+# Tells whether missing members accessed in mixin class should be ignored. A
+# mixin class is a class that has "mixin" (case insensitive) as a part of its
+# name.
+ignore-mixin-members=yes
+
+# List of module names for which member attributes should not be checked (useful
+# for modules /projects where namespaces are manipulated during runtime and thus
+# existing member attributes cannot be deduced by static analysis. It supports
+# qualified module names and namespaces like "myproject.*" to match
+# "myproject.foo" and "myproject.bar".
+ignored-modules=
+
+[LOGGING]
+# Format style used to check logging format string. {old, new, percent}
+logging-format-style=old
