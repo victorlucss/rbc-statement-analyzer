@@ -1,7 +1,9 @@
+import html
 import json
 import re
 from datetime import datetime
 from typing import List, Optional
+import fitz
 
 from .entities import Transaction
 from .utils import match_category, parse_float, read_pdf, should_exclude
@@ -101,24 +103,35 @@ def transactionsToJson(transactions_str: str) -> str:
     return json.dumps(transactions, indent=2)
 
 def parse_visa(
-    pdf_path: str,
+    pdf: str,
     categories: Optional[dict],
     excludes: Optional[list],
 ) -> List[Transaction]:
-    pdf = read_pdf(pdf_path)
-    start_date = extract_start_date(pdf)
+    print(pdf)
 
-    lines = re.sub(
-        rf"\n(?!{PAT_DATE_SHORT}\n{PAT_DATE_SHORT})",
-        " ",
-        pdf,
-        flags=re.IGNORECASE,
-    )
+    document = fitz.open(stream=pdf.stream, filetype="pdf")
+    string = ""
 
-    transactions = [
-        tx
-        for line in lines.splitlines()
-        if (tx := parse_transaction(line, start_date, categories or {}, excludes or []))
-    ]
+    # for page_num in range(len(document)):
+    #     page = document.load_page(page_num)
+    #     string += page.get_text("html" if html else "text")
 
-    return transactions
+    print('cheguei aqui', document)
+    
+
+    # start_date = extract_start_date(string)
+
+    # lines = re.sub(
+    #     rf"\n(?!{PAT_DATE_SHORT}\n{PAT_DATE_SHORT})",
+    #     " ",
+    #     pdf,
+    #     flags=re.IGNORECASE,
+    # )
+
+    # transactions = [
+    #     tx
+    #     for line in lines.splitlines()
+    #     if (tx := parse_transaction(line, start_date, categories or {}, excludes or []))
+    # ]
+
+    return []
