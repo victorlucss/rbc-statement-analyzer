@@ -1,5 +1,7 @@
 # RBC Statement analyzer
 
+Mind that this is just for fun :)
+
 Upload your pdf statement and see all the lines with graphs and an analyzer on where to cut things off to improve your finance
 
 # Todo
@@ -11,4 +13,3 @@ Upload your pdf statement and see all the lines with graphs and an analyzer on w
 # Credits 
 
 * Remix template - https://github.com/nikolailehbrink/retail
-* RBC Statement parser - https://github.com/andrewscwei/rbc-statement-parser

@@ -3,7 +3,6 @@ from typing import Optional
 import fitz  # PyMuPDF
 import re
 from flask import Flask, request, jsonify
-from typing import List, Dict
 
 app = Flask(__name__)
 

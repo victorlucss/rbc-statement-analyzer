@@ -15,51 +15,53 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { categoryToString, CURRENCY } from "@/utils";
 
 const chartConfig = {
   total: {
     label: "Total",
-    color: "hsl(var(--chart-1))",
   },
   restaurantsTotal: {
     label: "Restaurantes",
-    color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;
 
 export const Comparison = ({ data }) => {
   return (
-    <ChartContainer config={chartConfig} className="max-h-[300px]">
+    <ChartContainer
+      config={{}}
+      className="radius-lg h-[350px] max-h-[350px] rounded-lg border
+        bg-slate-900 p-5"
+    >
       <BarChart accessibilityLayer data={data} layout="vertical" height={300}>
-        <CartesianGrid horizontal={false} />
+        <CartesianGrid horizontal={false} stroke="0" />
         <YAxis
           dataKey="type"
           type="category"
           tickLine={false}
-          tickMargin={10}
           axisLine={false}
-          tickFormatter={(value) => value.slice(0, 3)}
+          width={80}
+          tickFormatter={(item: string) => categoryToString[item] ?? item}
+        />
+        <XAxis
+          dataKey="total"
+          type="number"
+          tickLine={false}
+          axisLine={false}
           hide
         />
-        <XAxis dataKey="total" type="number" hide />
-        <ChartTooltip
-          cursor={false}
+        {/* <ChartTooltip
+          cursor={true}
           content={<ChartTooltipContent indicator="line" />}
-        />
-        <Bar
-          dataKey="total"
-          layout="vertical"
-          fill="#c2410c"
-          radius={4}
-          height={100}
-        >
+        /> */}
+        <Bar dataKey="total" layout="vertical" fill="#ef4444" radius={4}>
           <LabelList
             dataKey="total"
             position="insideLeft"
             offset={8}
             className="fill-white"
             fontSize={12}
-            height={50}
+            formatter={(item: number) => `${CURRENCY}${item}`}
           />
         </Bar>
       </BarChart>
