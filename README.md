@@ -6,6 +6,4 @@ Mind that this is just for fun :)
 
 Upload your pdf statement and see all the lines with graphs and an analyzer on where to cut things off to improve your finance
 
-# Credits 
-
-* Remix template - https://github.com/nikolailehbrink/retail
+Big thanks to https://github.com/nikolailehbrink/retail and https://github.com/andrewscwei/rbc-statement-parser
